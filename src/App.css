@@ -1,38 +1,344 @@
-.App {
+*{
+  box-sizing: border-box;
+  padding: 0px;
+  align-items: center;
+  /* border: 1px solid pink; */
+}
+.App{
+  /* background-image: url(https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.navbar{
+  padding: 0px 20px;
+  height: 7vw;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px rgb(205, 144, 196);
+  background: rgb(238,174,202);
+background: linear-gradient(11deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.nav2{
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+}
+#Logo{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+#cartimg{
+  height: 40px;
+  width: 40px;
+}
+.Searchbar{
+  display: flex;
+  position: relative;
+}
+.Searchbar input[type=text]{
+height: 40px;
+width: 300px;
+border-color: black;
+padding-left: 10px;
+border-radius: 15px;
+}
+#searchimg{
+  height: 25px;
+  width: 30px;
+ position: absolute;
+ right: 10px;
+ top: 5px;
+}
+#loginbutton{
+  height: 30px;
+  width: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.ParentNavlink{
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+.CarouselProducts{
+  height: 40vh;
+  width: 100vw;
+  margin-top: 20px;
+  border: 2px solid black;
+}
+.parentProductDisplay{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.ProductDetailsDisplay{
+  height: 350px;
+  width: 300px;
+  background-color: rgb(198, 175, 219);
+  border-radius: 15px;
+  border: 1px solid grey;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.ProductDisplayimg{
+  height: 130px;
+  width: 130px;
+  margin: auto auto;
+}
+.productImg{
+  height: 130px;
+  width: 130px;
+  border-radius: 15px;
+  background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.linethrough{
+  text-decoration: line-through;
+  color: grey;
+}
+.addtocart{
+  height: 30px;
+  width: 130px;
+  background-color: white;
+border-radius: 15px;
+}
+.details{
+  margin-top: -5px;
+  padding: auto auto;
+  font-size: medium;
+}
+.Productstructure{
+  width: 280px;
+  margin: auto auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.IndividualPagestructure{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns:1fr 1fr;
+  height: 350px;
+  align-content: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.individualImg{
+  grid-row:1/2;
+  grid-column: 1/2;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.individualimg{
+  height: 250px;
+  width: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.individualDetails{
+  grid-row:1/2;
+  grid-column: 2/3;
+ padding-left: 20px;
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ align-items: flex-start;
+}
+.indicart{
+  height: 50px;
+  width: 150px;
+  background-color: rgb(191, 83, 83);
+color: white;
+font-family: cursive;
+border-radius: 15px;
+border: 1px solid white;
+}
+.navlink{
+  color: black;
+  font-family: cursive;
+}
+
+
+.Carouselstyling{
+cursor: pointer;
+}
+
+.totalDealsWrapper{
+  height: 300px;
+  width: 100%;
+background-color:whitesmoke;
+border: 1px solid grey;
+}
+.DealsTextParent{
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.DealsText{
+  font-weight: bold;
+  font-size: larger;
+}
+.GifHomePage{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.gifstyling{
+  width: 200px;
+  height: 200px;
+  /* margin: auto auto; */
+}
+.ShippingPartWrapper{
+  height: 250px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: bisque;
+}
+.detailshipping{
+  width: 220px;
+  text-align: center;
+}
+.shipping{
+  height: 70px;
+  width: 70px;
+}
+.FooterWrapper{
+background-color: lightgray;
+display: flex;
+}
+.footerLogo{
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  margin: 20px;
+}
+.FooterListWrapper{
+  display: flex;
+}
+.BrandsList{
+  margin-left: 50px;
+}
+.FooterDetails{
+  margin-left: 50px;
+
+}
+.footerimg{
+  height: 20px;
+  width: 20px;
+}
+/* Login page style */
+.LoginWrapper{
+  height: 70vh;
+  width: 100vw;
+background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+display: flex;
+}
+.LoginLeft{
+  height: 69vh;
+  width: 70vw;
+  /* background-color: white; */
+  margin-top: 5px;
+ border-radius: 40% 30px 70% 10% ;
+ text-align: center;
+ background-image:radial-gradient(rgb(209, 160, 238), rgb(139, 134, 152));
+ border :1px solid white;
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+}
+.ecartlogin{
+  height: 60px;
+  width: 60px;
+  margin-top: 20px;
+  display: block;
+  margin-left: -250px;
+  border-radius: 50%;
+}
+.LoginButton{
+  height: 30px;
+  width: 150px;
+  background-color: rgb(122, 33, 178);
+  border-radius: 10px;
+border: 2px solid rgb(136, 95, 171);
+font-size: large;
+font-weight: bold;
+color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.LoginLeft input[type=email] ,[type=password]{
+  height: 30px;
+  width: 200px;
+  border: 2px solid rgb(136, 95, 171);
+  border-radius: 10px;
+}
+.LoginLeft input[type=email]:focus{
+background-color: rgb(226, 225, 225);
+}
+.LoginLeft input[type=password]:focus{
+  background-color: rgb(226, 225, 225);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Registerbutton{
+  height: 30px;
+  width: 250px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 2px 2px lightgray;
+  background-color: rgb(122, 33, 178);
+color: white;
+font-weight: bold;
+font-family: cursive;
+font-size: large;
+}
+.CartWrapper{
+  height: 70vh;
+  width: 100vw;
+
+}
+.RegisterWrapper{
+  height:80vh;
+  width: 100vw;
+  background-image:radial-gradient(rgb(209, 160, 238), rgb(139, 134, 152));
+color: white;
+font-weight: bold;
+font-size: large;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+font-family: serif;
+}
+.createAcc{
+  /* border : 1px solid white; */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px grey;
+  text-shadow: 2px 2px  grey;
+}
+.RegisterDetails{
+  width: 50vw;
+  text-align: center;
+}
+.flnames{
+  display: flex;
+ justify-content: center;
+ gap: 10px; 
+}
+.RegisterDetails input[type='email'] ,input[type=password],input[type=text]{
+  height: 30px;
+  width: 200px;
+  border: 2px solid rgb(136, 95, 171);
+  border-radius: 10px;
+
 }
