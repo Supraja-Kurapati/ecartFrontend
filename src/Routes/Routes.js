@@ -10,7 +10,7 @@ import Individual from '../Individual/Individual'
 import Cart from '../Nav/Cart'
 import Login from '../Nav/Login'
 import Register from '../Nav/Register'
-import { useRef } from 'react'
+// import { useRef } from 'react'
 import Search from '../Nav/Search'
 
 const Routing = () => {

@@ -1,14 +1,10 @@
-import React ,{useState,useEffect}from 'react';
+import React ,{useState}from 'react';
 import Logo from '../Images/logo-white.png'
 import '../App.css'
-import Login from './Login';
-import Cart from './Cart';
-import Search from './Search';
-import { BrowserRouter,NavLink,Route,Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import cart from '../Images/shopping-cart-icon.png'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 const Navbar = ({requestSearch}) => {
   const navigate=useNavigate()
   const handlehome=()=>{

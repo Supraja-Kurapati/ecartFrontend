@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import cart from '../Images/shopping-cart-icon.png'
 const Cart = () => {
 

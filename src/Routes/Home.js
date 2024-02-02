@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
-import ProductsCarousel from './ProductsCarousel';
+// import ProductsCarousel from './ProductsCarousel';
 
 
 const Home = () => {
