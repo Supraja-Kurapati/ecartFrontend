@@ -7,11 +7,23 @@ import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from '../Redux/Slice';
 // import ProductsCarousel from './ProductsCarousel';
 
 
 const Home = () => {
+
+const cartData=useSelector(state=>state.ecom.products)
+const dispatch=useDispatch()
+console.log(cartData);
+
   const notify=()=>toast("Added to Cart 🎉")
+  
+  const handlecart=(itemid)=>{
+dispatch(addItemToCart(itemid));
+notify();
+  }
   const [data,setData]=useState([]);
   useEffect(()=>{
     const fetchData=async()=>{
@@ -50,7 +62,9 @@ const Home = () => {
       <h4 className='navlink'>{item.Device.slice(0,50)}</h4></NavLink>
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
-      <button className='addtocart' onClick={notify}>Add To Cart</button>
+      {/* <button className='addtocart' onClick={notify}>Add To Cart</button> */}
+      <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
+
       <ToastContainer/>
       </div>
       </div>

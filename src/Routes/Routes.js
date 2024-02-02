@@ -59,6 +59,7 @@ const Routing = () => {
 </div>*/}
       </div>
       <Routes>
+
         <Route path='/' element={<Home/>}/>
         <Route path='/Mobiles' element={<Mobiles/>}/>
         <Route path='/Tablets' element={<Tablet/>}/>
@@ -69,7 +70,6 @@ const Routing = () => {
         <Route path='/search' element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-
       </Routes>
       {/* </BrowserRouter> */}
     </div>
