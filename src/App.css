@@ -121,6 +121,9 @@ border-radius: 15px;
   padding: auto auto;
   font-size: medium;
 }
+.details a{
+  text-decoration: none;
+}
 .Productstructure{
   width: 280px;
   margin: auto auto;
@@ -169,6 +172,7 @@ border: 1px solid white;
 .navlink{
   color: black;
   font-family: cursive;
+  text-decoration: none;
 }
 
 

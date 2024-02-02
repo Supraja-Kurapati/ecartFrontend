@@ -36,7 +36,7 @@ console.error(err,"error in Fetching the data")
       <div className='details'>
       <NavLink to={`/Individual/${item.id}`}>
 
-      <h4 className='navlink'>{item.Device.slice(0,50)}</h4></NavLink>
+      <h4 className='navlink' style={{textDecoration:"none"}}>{item.Device.slice(0,50)}</h4></NavLink>
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
       <button className='addtocart' onClick={notify}>Add To Cart</button>
