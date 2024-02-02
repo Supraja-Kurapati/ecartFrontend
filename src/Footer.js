@@ -8,7 +8,8 @@ const Footer = () => {
     <div className='FooterWrapper'>
         <div style={{width:"100vw"}}><img src={logo} className='footerLogo'/></div>
         <div className='aboutus'><h2>About Us</h2>
-        <p style={{fontWeight:"bold"}}>E-cart is a Website which is Developed Supraja Kurapati_ by using some Technologies -React.js,Node.Js, Express and HTML/CSS- which is a single Page Web and Mobile Application containing the Products and functionalites to the responsiveness which makes User-Friendly </p>
+        <div>
+        <p style={{fontWeight:"bold"}} className='footerpara'>E-cart is a Website which is Developed Supraja Kurapati_ by using some Technologies -React.js,Node.Js, Express and HTML/CSS- which is a single Page Web and Mobile Application containing the Products and functionalites to the responsiveness which makes User-Friendly </p></div>
         <div className='FooterListWrapper'>
 
         <div>

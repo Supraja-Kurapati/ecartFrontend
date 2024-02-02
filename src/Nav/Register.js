@@ -11,7 +11,7 @@ const Register = () => {
 
    const handleRegister=()=>{
     try{
-      const res=axios.post('http://localhost:5132/api/register',{email,password,firstname,lastname})
+      const res=axios.post('https://ecartbackend-qtwf.onrender.com/api/register',{email,password,firstname,lastname})
         .then((res)=>{
             console.log(res.data,"User Registered Data")
             if(res.data.msg==="Email Already Exist"){

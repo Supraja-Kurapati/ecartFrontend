@@ -11,26 +11,24 @@ import Cart from '../Nav/Cart'
 import Login from '../Nav/Login'
 import Register from '../Nav/Register'
 import { useRef } from 'react'
+import Search from '../Nav/Search'
 
 const Routing = () => {
  const linkStyle={
   textDecoration:"none",
   color:"Black"
  }
-
-//  const navRef = useRef();
-//  const shownavbar=()=>{
-//    navRef.current.classList.toggle("responsivenav")
-//  }
-
+// const navref=useRef();
+// const shownavbar=()=>{
+//   navref.current.classList.toggle("responsivenavbar")
+// }
 
   return (
     <>
     <div>
       {/* <BrowserRouter> */}
       <div className='ParentNavlink'>
-      {/* <nav className='Navbar' ref={navRef}> */}
-
+{/* <div className='responsivenavbar'> */}
       <NavLink to='/' style={linkStyle}>    
          <img src='https://www.svgrepo.com/show/13696/house.svg' alt='Not Found' height=
         '30px' width='30px' style={{marginLeft:"5px"}}/>
@@ -51,12 +49,14 @@ const Routing = () => {
       <NavLink to='/Accessories' style={linkStyle}><img src='https://us.123rf.com/450wm/sergwsq/sergwsq1109/sergwsq110900040/10502566-icons-of-computer-vector-electronic-tv-printer-laptop-photo.jpg?ver=6' alt='Not Found' height=
         '30px' width='30px' style={{marginLeft:"20px"}}/>
 <div>Accessories</div></NavLink>
-{/* </nav>
-        <button onClick={shownavbar} className='navbtn'>
-          <img src='https://freesvg.org/img/menu-icon.png' alt='notfound' id='navmobclose'/>
-        </button> */}
+{/* <div className='hamburger' onClick={shownavbar}>
+      <div style={{display:"block"}}>
+      <div className='topline'>-</div>
+      <div className='bottomline'>-</div>
+      </div>
+    </div> 
 
-
+</div>*/}
       </div>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -66,6 +66,7 @@ const Routing = () => {
         <Route path='/Accessories' element={<Accessories/>}/>
         <Route path='/Individual/:id' element={<Individual/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/search' element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
 

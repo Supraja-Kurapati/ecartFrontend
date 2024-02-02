@@ -12,7 +12,7 @@ const navigate=useNavigate()
 
  const handleLogin=()=>{
   try{
-    const res= axios.post('http://localhost:5132/api/login',{email,password})
+    const res= axios.post('https://ecartbackend-qtwf.onrender.com/api/login',{email,password})
     .then((res)=>{
       console.log(res.data,"User Logged In Data");
 
@@ -20,6 +20,10 @@ const navigate=useNavigate()
         console.log("login success")
         alert(res.data.msg)
         localStorage.setItem("token",res.data.token)
+        setTimeout(() => {
+          navigate('/')
+        }, 1000);
+  
       }
       else{
         alert("PassWord Incorrect")

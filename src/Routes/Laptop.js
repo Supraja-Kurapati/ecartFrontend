@@ -11,7 +11,7 @@ const Laptop = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const resp=await axios.get('http://localhost:5132/api/store')
+        const resp=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
       setData(resp.data)
       }
       catch(err){
