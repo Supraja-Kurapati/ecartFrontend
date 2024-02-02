@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ecartlogo from '../Images/logo-white.png'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
