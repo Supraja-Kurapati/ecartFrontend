@@ -1,24 +1,31 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const Register = () => {
-    const[firstname,setFirstName]=useState([])
-    const[lastname,setLastName]=useState([])
-    const [email,setEmail]=useState([])
-    const [password,setPassword]=useState([])
+    const[firstname,setFirstName]=useState('')
+    const[lastname,setLastName]=useState('')
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+     
+    const navigate=useNavigate()
 
    const handleRegister=()=>{
     try{
-      const resp=axios.post('http://localhost:5132/api/register',{email,password,firstname,lastname})
+      const res=axios.post('http://localhost:5132/api/register',{email,password,firstname,lastname})
         .then((res)=>{
             console.log(res.data,"User Registered Data")
             if(res.data.msg==="Email Already Exist"){
-                alert(res.data.msg)
+               alert(res.data.msg)
             }
             else{
                 localStorage.setItem("token",res.data.token)
+                setTimeout(async() => {
+                  alert("user Registered successfully")
+                  await  navigate('/')
+                }, 2000);
             }
         })
-        console.log((resp.data,"response data"));
+        console.log((res.data,"response data"));
     }
     catch(err){
         console.log(err,"Registration failed");

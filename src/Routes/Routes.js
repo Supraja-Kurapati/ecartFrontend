@@ -10,6 +10,7 @@ import Individual from '../Individual/Individual'
 import Cart from '../Nav/Cart'
 import Login from '../Nav/Login'
 import Register from '../Nav/Register'
+import { useRef } from 'react'
 
 const Routing = () => {
  const linkStyle={
@@ -17,11 +18,19 @@ const Routing = () => {
   color:"Black"
  }
 
+//  const navRef = useRef();
+//  const shownavbar=()=>{
+//    navRef.current.classList.toggle("responsivenav")
+//  }
+
+
   return (
     <>
     <div>
       {/* <BrowserRouter> */}
       <div className='ParentNavlink'>
+      {/* <nav className='Navbar' ref={navRef}> */}
+
       <NavLink to='/' style={linkStyle}>    
          <img src='https://www.svgrepo.com/show/13696/house.svg' alt='Not Found' height=
         '30px' width='30px' style={{marginLeft:"5px"}}/>
@@ -42,6 +51,11 @@ const Routing = () => {
       <NavLink to='/Accessories' style={linkStyle}><img src='https://us.123rf.com/450wm/sergwsq/sergwsq1109/sergwsq110900040/10502566-icons-of-computer-vector-electronic-tv-printer-laptop-photo.jpg?ver=6' alt='Not Found' height=
         '30px' width='30px' style={{marginLeft:"20px"}}/>
 <div>Accessories</div></NavLink>
+{/* </nav>
+        <button onClick={shownavbar} className='navbtn'>
+          <img src='https://freesvg.org/img/menu-icon.png' alt='notfound' id='navmobclose'/>
+        </button> */}
+
 
       </div>
       <Routes>

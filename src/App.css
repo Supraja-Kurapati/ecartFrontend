@@ -9,10 +9,11 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .navbar{
   padding: 0px 20px;
-  height: 7vw;
+  height: 7vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -216,6 +217,7 @@ border: 1px solid grey;
 .FooterWrapper{
 background-color: lightgray;
 display: flex;
+flex-wrap: wrap;
 }
 .footerLogo{
   height: 80px;
@@ -225,6 +227,7 @@ display: flex;
 }
 .FooterListWrapper{
   display: flex;
+  justify-content: space-around;
 }
 .BrandsList{
   margin-left: 50px;
@@ -236,6 +239,8 @@ display: flex;
 .footerimg{
   height: 20px;
   width: 20px;
+  margin-bottom: -5px;
+  cursor: pointer;
 }
 /* Login page style */
 .LoginWrapper{
@@ -262,7 +267,7 @@ display: flex;
   width: 60px;
   margin-top: 20px;
   display: block;
-  margin-left: -250px;
+  /* margin-left: -250px; */
   border-radius: 50%;
 }
 .LoginButton{
@@ -342,3 +347,82 @@ font-family: serif;
   border-radius: 10px;
 
 }
+
+
+@media screen  and (min-width:600px) and (max-width:1030px) {
+ .navbar{
+   height: 8vh; 
+   justify-content: space-around;
+ }
+ .nav2{
+ width: 60vw;
+ }
+ .FooterWrapper{
+flex-direction: column; 
+position: relative;
+height: auto;
+}
+.LoginLeft{
+  height: 50vh;
+  align-items: center;
+}
+.RegisterWrapper{
+  height: 50vh;
+}
+.IndividualPagestructure{
+height: auto;
+}
+}
+
+/* Mobile view Media Query */
+
+/* @media screen and (min-width: 350px) and (max-width:600px) {
+  
+}
+
+#navmobclose{
+  height: 20px;
+  width: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ .navbtn{
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media screen and (max-width:600px) {
+ 
+ .navbtn{
+    visibility: visible;
+    opacity: 1;
+    position:relative;
+    right: 0px;
+    font-size: 1.8rem;
+  }
+  .ParentNavlink nav{
+    height: 100%;
+    width: 100vw;
+    position: fixed;
+    top: 150vw;
+    left: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform:  translateY(-100vh);
+    transition: 1s;
+    gap: 5px;
+    z-index: 5;
+    background-color: rgb(181, 177, 177);
+  }
+   .responsivenav{
+    height: 60vh;
+    width: 50vw;
+     transform: none;
+  }
+
+} */

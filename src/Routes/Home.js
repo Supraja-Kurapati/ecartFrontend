@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
+import ProductsCarousel from './ProductsCarousel';
 
 
 const Home = () => {
@@ -64,8 +65,8 @@ const Home = () => {
           <img src='https://klovimg.com/images/2018/10/26/dealoftheday-animated.gif' alt='DEALS OF THE DAY' className='DealsText' style={{height:"100px", width:"200px"}}/>
           </div> <hr/>
           <div className='DealProductuctsWrapper'>
+            
             <div>
-              
             </div>
           </div>
 

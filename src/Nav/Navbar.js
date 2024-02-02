@@ -7,13 +7,17 @@ import Search from './Search';
 import { BrowserRouter,NavLink,Route,Routes } from 'react-router-dom';
 
 import cart from '../Images/shopping-cart-icon.png'
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  
+  const navigate=useNavigate()
+  const handlehome=()=>{
+    navigate('/')
+  }
   return (
 
     <div className='navbar'>
-        <div className='Logo'><img src={Logo} alt='notfound' id='Logo'/></div>
+        <div className='Logo'><img src={Logo} alt='notfound' id='Logo' onClick={handlehome}/></div>
         <div className='nav2'>
    {/* <div>        
     <div className='Searchbar'><input type='text' placeholder='What you are Looking for?'/>
