@@ -39,38 +39,39 @@
 
 // //-----------------\down
 
-// // import React,{useState,useEffect} from 'react'
-// //  import axios from 'axios'
+import React,{useState,useEffect} from 'react'
+ import axios from 'axios'
 
-// // const Data = () => {
-// //     const [data,setData]=useState([])
-// //   useEffect(()=>{
-// //     const fetchData=async()=>{
-// //       try{
-// //         const resp=await axios.get('http://localhost:5132/api/store')
-// //       setData(resp.data)
-// //       }
-// //       catch(err){
-// // console.error(err,"error in Fetching the data")
-// //       }
-// //     }
-// //     fetchData()
-// //   },[])
+const Data = () => {
+    const [data,setData]=useState([])
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        const resp=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
+      setData(resp.data)
+      }
+      catch(err){
+console.error(err,"error in Fetching the data")
+      }
+    }
+    fetchData()
+  },[])
 
-// //   return (
-// //     <div>
-// //       {data.map((item)=>(
-// //       <div key={item.id}>
-// //       <h1>  {item.Device}
-// //       </h1>
-// //       <img src={item.Image} alt='Not found'></img>
-// //       </div>
-// //     ))}
-// //     </div>
-// //   )
-// // }
+  return (
+    <div>
+      {data.map((item)=>(
+      <div key={item.id}>
+              <img src={item.Image} alt='Not found'></img>
 
-// // export default Data
+      <h1>  {item.Device}
+      </h1>
+      </div>
+    ))}
+    </div>
+  )
+}
+
+export default Data
 
 // /* App.jsx */
 // class App extends React.Component {
