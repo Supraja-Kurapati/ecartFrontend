@@ -23,8 +23,9 @@ const Home = () => {
  const dispatch=useDispatch()
  console.log(cartData);
 
-  const notify=()=>toast("Added to Cart 🎉")
-  
+  const notify=()=>{
+    toast("Added to Cart 🎉")
+  }
   const handlecart=(itemid)=>{
 dispatch(addItemToCart(itemid));
 notify();
