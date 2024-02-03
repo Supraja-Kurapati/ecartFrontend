@@ -19,9 +19,9 @@ const Home = () => {
 // const {Qdata,error,isLoading}=useGetAllProductsQuery();
 
 
-// const cartData=useSelector(state=>state.ecom.products)
-// const dispatch=useDispatch()
-// console.log(cartData);
+ const cartData=useSelector(state=>state.ecom.products)
+ const dispatch=useDispatch()
+ console.log(cartData);
 
   const notify=()=>toast("Added to Cart 🎉")
   
