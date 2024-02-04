@@ -15,7 +15,8 @@ reducers:{
             const addItem=res.data.find(item=>item.id===action.payload)
             if(addItem){
                 return(
-                state.cart.push(addItem)
+                    state.cart=[...state.cart,addItem]
+                // state.cart.push(addItem)
                 // console.log("payload",action.payload);
             
                 )
