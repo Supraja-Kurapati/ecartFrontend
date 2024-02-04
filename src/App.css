@@ -4,6 +4,9 @@
   align-items: center;
   /* border: 1px solid pink; */
 }
+.LoginReg{
+  display: none;
+}
 .App{
   /* background-image: url(https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg); */
   background-position: center;
@@ -468,6 +471,24 @@ grid-column: 1/2;
 grid-row: 2/3;
 grid-column: 1/2;
 
+}
+.LoginReg{
+  display:flex;
+  flex-direction: column;
+}
+.LoginRight{
+  display: none;
+}
+.LoginWrapper{
+  height: 90vh;
+}
+.LoginLeft{
+  width: 100vw;
+  height: 90vh;
+}
+.Registerbutton{
+  width: 170px;
+  
 }
 
 }

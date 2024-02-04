@@ -14,7 +14,6 @@ import { addItemToCart } from '../Redux/Slice';
 const Home = () => {
 //  const Data=useSelector(state=>state.ecom.products)
 const cart=useSelector((state)=>state.cart.cart)
-console.log(cart);
 // const getTotal=()=>{
 //   let total=0
 //   cart.forEach(item => {

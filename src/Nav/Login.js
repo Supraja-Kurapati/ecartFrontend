@@ -59,6 +59,14 @@ const navigate=useNavigate()
             Log In
           </button>
 
+          <div className='LoginReg'>
+        <h3>New here👀</h3>
+       <NavLink to='/register'>
+        <button className='Registerbutton'>Signup!</button>
+        </NavLink>
+      </div>
+
+
         </div>
 
       <div className='LoginRight'>

@@ -28,44 +28,41 @@
 
 
 
-import { configureStore } from "@reduxjs/toolkit";
-import { cartReducer } from "./Slice";
-import storage from "redux-persist/lib/storage";
- import {
-    persistStore,
-    persistReducer,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist'
+// import { configureStore } from "@reduxjs/toolkit";
+// import { cartReducer } from "./Slice";
+// import storage from "redux-persist/lib/storage";
+//  import {
+//     persistStore,
+//     persistReducer,
+//     FLUSH,
+//     REHYDRATE,
+//     PAUSE,
+//     PERSIST,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist'
 
-//export const store=configureStore({
-  //  reducer: cartReducer
-//})
-// import { store } from './ReduxStore';
 
-const persistConfig = {
-    key: 'root',
-    storage,
-  }
 
-   const persistedReducer = persistReducer(persistConfig, cartReducer)
+// const persistConfig = {
+//     key: 'root',
+//     storage,
+//   }
 
- export const store = configureStore({
-  reducer:  persistedReducer,
+//    const persistedReducer = persistReducer(persistConfig, cartReducer)
+
+//  export const store = configureStore({
+//   reducer:  persistedReducer,
   
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    })
-})
+//   middleware: (getDefaultMiddleware) =>
+//     getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//       },
+//     })
+// })
 
-export const persistor = persistStore(store)
+// export const persistor = persistStore(store)
 
 
 // import { configureStore } from "@reduxjs/toolkit";
@@ -75,3 +72,12 @@ export const persistor = persistStore(store)
 //     Cart:CartSlice
 //   }
 // }
+
+import { configureStore } from "@reduxjs/toolkit";
+import { cartReducer } from "./Slice";
+
+export const store=configureStore({
+    reducer:{
+        cart:cartReducer
+    }
+})
