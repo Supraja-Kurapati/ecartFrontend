@@ -7,13 +7,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
-import { useDispatch } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 // import { addItemToCart } from '../Redux/Slice';
 import { addItemToCart } from '../Redux/Slice';
 
 const Home = () => {
 //  const Data=useSelector(state=>state.ecom.products)
-//const cart=useSelector((state)=>state.cart.cart)
+const cart=useSelector((state)=>state.cart.cart)
+console.log(cart);
 // const getTotal=()=>{
 //   let total=0
 //   cart.forEach(item => {
