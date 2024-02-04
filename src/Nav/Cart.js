@@ -24,7 +24,7 @@ const cartItems=useSelector(state=>state.ecom.cart)
 <div>
   <h1> Cart ITEMS </h1>
 {
- cartItems.filter(e=>parseInt(e.id)===item.id).map(item=>{
+ cartItems.filter(e=>parseInt(e.id)===e.id).map(item=>{
   <div key={item.id}>
   <h2>{item.Device}</h2>
   </div>
