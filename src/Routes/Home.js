@@ -15,16 +15,12 @@ import { addItemToCart } from '../Redux/Slice';
 // import { productsApi } from './../Redux/productsAPI';
 
 const Home = () => {
-
 // const {Qdata,error,isLoading}=useGetAllProductsQuery();
-
-
- const cartData=useSelector(state=>state.ecom.products)
+ const Data=useSelector(state=>state.ecom.products)
  const dispatch=useDispatch()
- console.log(cartData);
-
+ console.log(Data);
   const notify=()=>{
-    toast("Added to Cart 🎉")
+    toast.success("Added to Cart 🎉")
   }
   const handlecart=(itemid)=>{
 dispatch(addItemToCart(itemid));
@@ -37,7 +33,6 @@ notify();
         const resp=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
         setData(resp.data)
       }
-
       catch(err){
      console.log(err,"Error in fetching Data");
       }
@@ -48,24 +43,6 @@ notify();
   return (
     <div>
       <CarouselCompo/>
-{/* <div>
-  {isLoading ? (<p>Loading...</p>) :error ?( <p>An error Occured</p>):
-  (
-  <>
-  <h2>neww arrivala</h2>
-  <div className='productss'>
-    {data?.map(product =>
-      <div key={product.id} className='PRoduct'>
-        <h3>{productsApi.name}</h3>
-        <img src={product.Image} alt='Not Found'/>
-
-
-
-      </div>
-      )}
-  </div>
-  </>)}
-</div> */}
 {/* All Categories Code */}
       <h3 style={{margin:"auto auto"}}>ALL Categories</h3>
       <div>
@@ -86,9 +63,7 @@ notify();
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
       {/* <button className='addtocart' onClick={notify}>Add To Cart</button> */}
-
       <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
-
       <ToastContainer/>
       </div>
       </div>
@@ -154,3 +129,24 @@ notify();
 }
 
 export default Home
+
+
+
+{/*   46  <div>
+  {isLoading ? (<p>Loading...</p>) :error ?( <p>An error Occured</p>):
+  (
+  <>
+  <h2>neww arrivala</h2>
+  <div className='productss'>
+    {data?.map(product =>
+      <div key={product.id} className='PRoduct'>
+        <h3>{productsApi.name}</h3>
+        <img src={product.Image} alt='Not Found'/>
+
+
+
+      </div>
+      )}
+  </div>
+  </>)}
+</div> */}
