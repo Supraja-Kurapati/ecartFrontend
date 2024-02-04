@@ -132,21 +132,3 @@ export default Home
 
 
 
-{/*   46  <div>
-  {isLoading ? (<p>Loading...</p>) :error ?( <p>An error Occured</p>):
-  (
-  <>
-  <h2>neww arrivala</h2>
-  <div className='productss'>
-    {data?.map(product =>
-      <div key={product.id} className='PRoduct'>
-        <h3>{productsApi.name}</h3>
-        <img src={product.Image} alt='Not Found'/>
-
-
-
-      </div>
-      )}
-  </div>
-  </>)}
-</div> */}

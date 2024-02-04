@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 const Cart = () => {
 const cartItems=useSelector(state=>state.ecom.cart)
- console.log(cartItems);
+ console.log(data);
 
 //  const [cartItems,setcartItems]=useState([]);
 //  useEffect(()=>{
@@ -24,11 +24,12 @@ const cartItems=useSelector(state=>state.ecom.cart)
 <div>
   <h1> Cart ITEMS </h1>
 {
- cartItems.filter(e=>parseInt(e.id)===e.id).map(item=>{
-  <div key={item.id}>
+ cartItems.filter((e)=>parseInt(e.id)===item.id).map(item=>{
+  return(
   <h2>{item.Device}</h2>
-  </div>
+  )
  })
+ 
 }
 {/* {
   cartItems.map(item=>(
