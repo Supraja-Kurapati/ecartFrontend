@@ -29,7 +29,6 @@ import { useSelector } from "react-redux";
 
 
 
-import { useSelector } from "react-redux";
 export const cart=useSelector((state)=>state.cart)
 return(
 <div className="cart__left">
