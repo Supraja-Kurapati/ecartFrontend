@@ -7,29 +7,29 @@ import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
-import { useSelector,useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { addItemToCart } from '../Redux/Slice';
 import { addItemToCart } from '../Redux/Slice';
 
 const Home = () => {
 //  const Data=useSelector(state=>state.ecom.products)
-const cart=useSelector((state)=>state.cart)
-const getTotalQuantity=()=>{
-  let total=0
-  cart.forEach(item => {
-    total += item.quantity
-  })
-  return total
-}
+//const cart=useSelector((state)=>state.cart.cart)
+// const getTotal=()=>{
+//   let total=0
+//   cart.forEach(item => {
+//     total += item.quantity
+//   })
+//   return total
+// }
  const dispatch=useDispatch()
 //  console.log(Data);
   const notify=()=>{
     toast.success("Added to Cart 🎉")
   }
-//   const handlecart=(itemid)=>{
-// dispatch(addItemToCart(itemid));
-// notify();
-//   }
+  const handlecart=(itemid)=>{
+dispatch(addItemToCart(itemid));
+notify();
+  }
   const [data,setData]=useState([]);
   useEffect(()=>{
     const fetchData=async()=>{
@@ -68,8 +68,8 @@ const getTotalQuantity=()=>{
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
       {/* <button className='addtocart' onClick={notify}>Add To Cart</button> */}
-      {/* <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button> */}
-      <button onClick={()=>dispatch(addItemToCart({id,Device,Image}))}>ADD To Cart</button>
+      <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
+      {/* <button className='addtocart' onClick={()=>dispatch(addItemToCart(item.id)) }>ADD To Cart</button> */}
       <ToastContainer/>
       </div>
       </div>

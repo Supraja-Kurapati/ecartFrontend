@@ -2,10 +2,10 @@ import { incrementQuantity,decrementQuantity,removeItem } from "../Redux/Slice";
 
 import { useDispatch } from "react-redux";
 
-function CartItem({id,Image,Device,quantity=0}){
+function CartItem({id,Image,Device,Price,quantity=0}){
     const dispatch=useDispatch()
     return(
-        <div>
+        <div style={{border:"2px solid black"}}>
             <img className="cartItem__image" src={Image} alt='item'/>
             <p>{Device}</p>
         <div className='cartItem__incrDec'>

@@ -8,6 +8,7 @@ const Cart = () => {
 
 
  const cart=useSelector((state)=>state.cart)
+ console.log(cart);
 return(
 <div className="cart__left">
   <div>
@@ -16,9 +17,10 @@ return(
       <CartItem
         key={item.id}
         id={item.id}
-        image={item.Image}
-        title={item.Device}
+        Image={item.Image}
+        Device={item.Device}
         quantity={item.quantity}
+        price={item.Price}
       />
     ))}
   </div>

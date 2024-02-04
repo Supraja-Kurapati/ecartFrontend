@@ -30,7 +30,7 @@ const Navbar = ({requestSearch}) => {
 
 <NavLink to='/cart'>    <div>
     <div className='cart'><img id='cartimg' src={cart} alt='Not Found' 
-   /><p>getTotalQuantity()||0</p></div>
+   /></div>
 
     </div>
 </NavLink>

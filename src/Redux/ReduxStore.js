@@ -66,3 +66,12 @@ const persistConfig = {
 })
 
 export const persistor = persistStore(store)
+
+
+// import { configureStore } from "@reduxjs/toolkit";
+// import CartSlice from "./Slicing"
+// export const Store = configureStore({
+//   reducer:{
+//     Cart:CartSlice
+//   }
+// }
