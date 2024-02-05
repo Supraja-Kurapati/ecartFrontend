@@ -1,3 +1,4 @@
+import React from "react";
 import { incrementQuantity,decrementQuantity,removeItem } from "../Redux/Slice";
 
 import { useDispatch } from "react-redux";
@@ -22,5 +23,7 @@ function CartItem({id,Image,Device,Price,quantity=0}){
 
     )
 }
+
+
 
 export default CartItem

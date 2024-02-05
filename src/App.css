@@ -184,9 +184,9 @@ cursor: pointer;
 }
 
 .totalDealsWrapper{
-  height: 300px;
+  height: 400px;
   width: 100%;
-background-color:whitesmoke;
+background-color:white;
 border: 1px solid grey;
 }
 .DealsTextParent{
@@ -198,6 +198,16 @@ border: 1px solid grey;
 .DealsText{
   font-weight: bold;
   font-size: larger;
+}
+.dealsproducts{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgb(115, 74, 152);
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: -2px 2px lightgrey;
 }
 .GifHomePage{
   width: 100%;
@@ -488,7 +498,7 @@ grid-column: 1/2;
 }
 .Registerbutton{
   width: 170px;
-  
+
 }
 
 }

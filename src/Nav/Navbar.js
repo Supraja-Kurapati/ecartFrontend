@@ -1,31 +1,32 @@
-import React ,{useState}from 'react';
+import React from 'react';
 import Logo from '../Images/logo-white.png'
 import '../App.css'
 import { NavLink } from 'react-router-dom';
 
 import cart from '../Images/shopping-cart-icon.png'
 import { useNavigate } from 'react-router-dom';
-const Navbar = ({requestSearch}) => {
+import Logout from './logout';
+ const Navbar = ({requestSearch}) => {
+
   const navigate=useNavigate()
   const handlehome=()=>{
     navigate('/')
-  }
-
+  } 
   
-   const [search,setSearch]=useState('')
-   const searchData=()=>{
-    requestSearch(search)
-   }
-   console.log(search);
+  //  const [search,setSearch]=useState('')
+  //  const searchData=()=>{
+  //   requestSearch(search)
+  //  }
+  //  console.log(search);
   return (
 
     <div className='navbar'>
         <div className='Logo'><img src={Logo} alt='notfound' id='Logo' onClick={handlehome}/></div>
         <div className='nav2'>
-   <div>        
+   {/* <div>        
     <div className='Searchbar'><input type='text' placeholder='What you are Looking for?' value={search} onChange={(e)=>setSearch(e.target.value)}/>
    <NavLink to='/search'> <img src='https://www.svgrepo.com/show/7109/search.svg' alt='notFound' id='searchimg' onClick={searchData}/></NavLink></div>
-</div>
+</div> */}
 {/* <Search/> */}
 
 <NavLink to='/cart'>    <div>
@@ -34,10 +35,17 @@ const Navbar = ({requestSearch}) => {
 
     </div>
 </NavLink>
-<NavLink to='/login'>    <div>
-    <button id='loginbutton' >Login</button>
+
+  
+    <NavLink to='/login'>    <div>
+    <button id='loginbutton'>Login</button>
     </div>
 </NavLink>
+<Logout/>
+
+
+
+
        
            {/* <Route path='/search' element={<Search/>}/> */}
            {/* <Route path='/cart' element={<Cart/>}/> */}

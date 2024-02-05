@@ -3,17 +3,23 @@ import CarouselCompo from '../CarouselCompo'
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import {ToastContainer,toast} from 'react-toastify'
+
 import 'react-toastify/dist/ReactToastify.css';
 import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
-import { useSelector,useDispatch } from 'react-redux';
-// import { addItemToCart } from '../Redux/Slice';
+import { useDispatch,useSelector } from 'react-redux';
 import { addItemToCart } from '../Redux/Slice';
-
+// import { addItemToCart } from '../Redux/Slice';
+import ProductsCarousel from './ProductsCarousel';
 const Home = () => {
+    
+
+
+
 //  const Data=useSelector(state=>state.ecom.products)
-const cart=useSelector((state)=>state.cart.cart)
+ const cart=useSelector((state)=>state.cart.products)
+ console.log(cart);
 // const getTotal=()=>{
 //   let total=0
 //   cart.forEach(item => {
@@ -21,8 +27,9 @@ const cart=useSelector((state)=>state.cart.cart)
 //   })
 //   return total
 // }
- const dispatch=useDispatch()
-//  console.log(Data);
+const dispatch=useDispatch()
+
+  //console.log(Data);
   const notify=()=>{
     toast.success("Added to Cart 🎉")
   }
@@ -67,10 +74,11 @@ notify();
       <h4 className='navlink'>{item.Device.slice(0,50)}</h4></NavLink>
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
-      {/* <button className='addtocart' onClick={notify}>Add To Cart</button> */}
-      <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
-      {/* <button className='addtocart' onClick={()=>dispatch(addItemToCart(item.id)) }>ADD To Cart</button> */}
+
+
+      <button className='addtocart' onClick={()=>{handlecart(item.id)}}>Add To Cart</button>
       <ToastContainer/>
+      {/* <button className='addtocart' onClick={()=>dispatch(addItemToCart(item.id)) }>ADD To Cart</button> */}
       </div>
       </div>
       </div>
@@ -82,11 +90,11 @@ notify();
       <div className='totalDealsWrapper'>
         <div className='DealsTextParent'>
           <img src='https://klovimg.com/images/2018/10/26/dealoftheday-animated.gif' alt='DEALS OF THE DAY' className='DealsText' style={{height:"100px", width:"200px"}}/>
-          </div> <hr/>
+          </div> 
           <div className='DealProductuctsWrapper'>
             
             <div>
-              {/* <ProductsCarousel/> */}
+              <ProductsCarousel/>
             </div>
           </div>
 

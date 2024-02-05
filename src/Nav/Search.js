@@ -10,7 +10,7 @@ const Search = () => {
   const receiveQuery=(receiver)=>{
     
       setQuery(receiver)
-      // console.log(query);
+       console.log(query);
 
   }
 

@@ -11,9 +11,8 @@ const App = () => {
 <Routing/>
 
 <Footer/>
-
-    </div>
-  )
+</div>
+)
 }
 
 export default App

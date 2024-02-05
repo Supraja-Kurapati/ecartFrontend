@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import data from "../DATA/Data";
 
 const cartSlice=createSlice({
     name:'cart',
     initialState:{
+        products:data,
          cart:[],
         quantity:0
     },
@@ -13,7 +15,7 @@ const cartSlice=createSlice({
         // //axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
         // .then(res=>{
 
-            const itemInCart=state.cart.findIndex(item=>item.id===action.payload.id)
+            const itemInCart=state.products.findIndex(item=>item.id===action.payload.id)
 
                         if(itemInCart>0){
                 itemInCart.quantity++;
@@ -23,14 +25,14 @@ const cartSlice=createSlice({
                         // state.cart.push(tempvar)
 
                //state.cart.push({...action.payload.id,quantity:1});
-               const temp=state.cart.push({
-                id:action.payload.id,
-                Device:action.payload.Device,
-                Price:action.payload.Price,
-                quantity:1
-               })
-               console.log(temp.id);
-         //state.cart.push(action.payload)   
+              //  const temp=state.cart.push({
+              //   id:action.payload.id,
+              //   Device:action.payload.Device,
+              //   Price:action.payload.Price,
+              //   quantity:1
+              //  })
+              //  console.log(temp.id);
+         state.cart.push(action.payload)   
         }
 //     })
     
