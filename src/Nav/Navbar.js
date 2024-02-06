@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../Images/logo-white.png'
 import '../App.css'
 import { NavLink } from 'react-router-dom';
-
 import cart from '../Images/shopping-cart-icon.png'
 import { useNavigate } from 'react-router-dom';
-import Logout from './logout';
- const Navbar = ({requestSearch}) => {
+ const Navbar = ({requestsearch}) => {
 
   const navigate=useNavigate()
   const handlehome=()=>{
     navigate('/')
   } 
-  
-  //  const [search,setSearch]=useState('')
-  //  const searchData=()=>{
-  //   requestSearch(search)
-  //  }
-  //  console.log(search);
+  const [loggedIn,setLoggedIn]=useState(false)
+
+  const handlelogin=()=>{
+    setLoggedIn(true)
+  }
+  const handlelogout=()=>{
+    localStorage.removeItem('token')
+    setTimeout(()=>{
+    alert("you ave loggedout")
+      setLoggedIn(false)
+    },6000)
+  }
+   const [search,setSearch]=useState('')
+
+   const handleSearch=()=>{
+    requestsearch(search)
+   }
   return (
 
     <div className='navbar'>
@@ -25,7 +34,7 @@ import Logout from './logout';
         <div className='nav2'>
    {/* <div>        
     <div className='Searchbar'><input type='text' placeholder='What you are Looking for?' value={search} onChange={(e)=>setSearch(e.target.value)}/>
-   <NavLink to='/search'> <img src='https://www.svgrepo.com/show/7109/search.svg' alt='notFound' id='searchimg' onClick={searchData}/></NavLink></div>
+   <NavLink to='/search'> <img src='https://www.svgrepo.com/show/7109/search.svg' alt='search' id='searchimg' onClick={handleSearch}/></NavLink></div>
 </div> */}
 {/* <Search/> */}
 
@@ -37,12 +46,19 @@ import Logout from './logout';
 </NavLink>
 
   
-    <NavLink to='/login'>    <div>
+    {/* <NavLink to='/login'>    <div>
     <button id='loginbutton'>Login</button>
     </div>
 </NavLink>
-<Logout/>
-
+<Logout/> */}
+{loggedIn?(<img src='https://cdn-icons-png.flaticon.com/512/1053/1053210.png' alt='Logout' id='logoutbutton' onClick={handlelogout}/>):(
+  <NavLink to='/login'>   
+   <div>
+    <button id='loginbutton' onClick={handlelogin}>Login</button>
+    </div>
+</NavLink>
+)
+}
 
 
 

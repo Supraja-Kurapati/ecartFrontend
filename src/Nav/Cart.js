@@ -7,7 +7,22 @@
  import { useNavigate } from 'react-router-dom';
 const Cart = () => {
 
-  const cartItems=useSelector(state=>state.cart.cart)
+  // const [data,setData]=useState([]);
+  // useEffect(()=>{
+  //   const fetchData=async()=>{
+  //     try{
+  //       //const resp=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
+  //        const resp=await axios.get('http://localhost:5132/api/store')
+  //       setData(resp.data)
+  //     }
+  //     catch(err){
+  //    console.log(err,"Error in fetching Data");
+  //     }
+  //   }
+  //   fetchData()
+  // },[])
+
+    const cartItems=useSelector(state=>state.cart.cart)
   const dispatch=useDispatch();
    const navigate=useNavigate()
 
@@ -36,23 +51,15 @@ const Cart = () => {
         });
       }
       },[navigate])
-  
-//const cartItems=useSelector(state=>state.ecom.cart)
-//  console.log(Data);
-
-
- //const cart=useSelector(state=>state.cart.cart)
- //console.log(Data);
- //console.log(cart);
-return(
+  return(
   <>
-  <h2> this is cart</h2>
+  {/* <h2> this is cart</h2> */}
 {
   cartItems.map(item=>(
 <div key={item.id}>
 <p>{item.Device}</p>
   <img src={item.Image} alt='Not Found'/>
-<button onClick={()=>handleremove(item)}>Remove</button>
+ <button onClick={()=>handleremove(item)}>Remove</button> 
 </div>
    ))
 }
