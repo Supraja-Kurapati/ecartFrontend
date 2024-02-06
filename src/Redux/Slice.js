@@ -16,7 +16,7 @@ const cartSlice=createSlice({
 
             const itemstoADD=state.products.find(item=>item.id===action.payload.id)
 
-                        if(itemstoADD>0){
+                        if(itemstoADD>=0){
                 itemstoADD.quantity++;
             }
             else{

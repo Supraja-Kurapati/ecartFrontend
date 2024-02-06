@@ -78,7 +78,7 @@ console.log("cart clicked",id);
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
 
 
-      <button className='addtocart' onClick={()=>{handlecart(item.id)}}>Add To Cart</button>
+      <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
       <ToastContainer/>
       {/* <button className='addtocart' onClick={()=>dispatch(addItemToCart(item.id)) }>ADD To Cart</button> */}
       </div>
