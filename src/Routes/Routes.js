@@ -7,11 +7,12 @@ import Accessories from './Accessories'
 import Tablet from './Tablet'
 import Individual from '../Individual/Individual'
 
-import Cart from '../Nav/Cart'
+//import Cart from '../Nav/Cart'
 import Login from '../Nav/Login'
 import Register from '../Nav/Register'
 // import { useRef } from 'react'
 import Search from '../Nav/Search'
+import CartItem from '../Nav/CartItem'
 
 
 const Routing = () => {
@@ -67,7 +68,7 @@ const Routing = () => {
         <Route path='/Laptop' element={<Laptop/>}/>
         <Route path='/Accessories' element={<Accessories/>}/>
         <Route path='/Individual/:id' element={<Individual/>}/>
-        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/cart' element={<CartItem/>}/>
         <Route path='/search' element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>

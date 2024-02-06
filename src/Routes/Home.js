@@ -9,16 +9,18 @@ import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
 import { useDispatch} from 'react-redux';
-// import { addItemToCart } from '../Redux/Slice';
+import { useSelector } from 'react-redux';
+ import { addItemToCart } from '../Redux/Slice';
 // import { addItemToCart } from '../Redux/Slice';
 import ProductsCarousel from './ProductsCarousel';
-import { addItemToCart } from '../Redux/Actions';
+// import { addItemToCart } from '../Redux/Actions';
 const Home = () => {
     
 
 
 
-//  const cart=useSelector((state)=>state.cart.products)
+  const Data=useSelector(state=>state.cart.products)
+  console.log(Data);
 //  console.log(cart);
 // const getTotal=()=>{
 //   let total=0
@@ -62,7 +64,7 @@ console.log("cart clicked",id);
       {data.filter((e)=>parseInt(e.id%5)===0).map((item)=>(
 
       <div className='ProductDetailsDisplay'>
-        <div className='Productstructure'>
+        <div className='Productstructure' key={item.id}>
           
           <NavLink to={`/Individual/${item.id}`}>
         <div className='ProductDisplayimg'>

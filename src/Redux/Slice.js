@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import Data from "../DATA/Data";
-
+import Data from "../DATA/Data";
 const cartSlice=createSlice({
     name:'cart',
     initialState:{
-        // products:Data,
+         products:Data,
          cart:[],
         quantity:0
     },
@@ -15,10 +14,10 @@ const cartSlice=createSlice({
         // //axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
         // .then(res=>{
 
-            const itemInCart=state.cart.findIndex(item=>item.id===action.payload.id)
+            const itemstoADD=state.products.findIndex(item=>item.id===action.payload.id)
 
-                        if(itemInCart>0){
-                itemInCart.quantity++;
+                        if(itemstoADD>0){
+                itemstoADD.quantity++;
             }
             else{
                         // const tempvar = {...action.payload,quantity:1}
@@ -32,7 +31,9 @@ const cartSlice=createSlice({
               //   quantity:1
               //  })
               //  console.log(temp.id);
-         state.cart.push(action.payload)   
+         //state.cart.push(action.payload)  
+        //--------- state.cart.push(itemstoADD) 
+        state.cart.push("payload",action.payload)
         }
 //     })
     
@@ -40,6 +41,7 @@ const cartSlice=createSlice({
 // catch(err){
 //     console.error(err)    
 // }
+
         },
         incrementQuantity: (state,action) => {
             const item = state.cart.find((item) => item.id === action.payload.id);
@@ -80,9 +82,9 @@ const cartSlice=createSlice({
 //   },
 //   reducers: {
 //     addItemToCart: (state, action) => {
-//       const itemInCart = state.cart.find((item) => item.id === action.payload.id);
-//       if (itemInCart) {
-//         itemInCart.quantity++;
+//       const itemstoADD = state.cart.find((item) => item.id === action.payload.id);
+//       if (itemstoADD) {
+//         itemstoADD.quantity++;
 //       } else {
 //         state.cart.push({ ...action.payload, quantity: 1 });
 //       }

@@ -5,7 +5,7 @@
  // import CartItem from './CartItem';
  import { removeItem } from '../Redux/Slice';
  import { useNavigate } from 'react-router-dom';
-const Cart = () => {
+const Cart = ({id}) => {
 
   // const [data,setData]=useState([]);
   // useEffect(()=>{
@@ -55,7 +55,7 @@ const Cart = () => {
   <>
   {/* <h2> this is cart</h2> */}
 {
-  cartItems.map(item=>(
+  cartItems.filter((e)=>parseInt(e.id)===id).map(item=>(
 <div key={item.id}>
 <p>{item.Device}</p>
   <img src={item.Image} alt='Not Found'/>

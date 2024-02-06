@@ -66,8 +66,8 @@ console.error(err,"error in Fetching the data")
       <div key={item.id}>
               <img src={item.Image} alt='Not found'></img>
 
-      <h1>  {item.Device}
-      </h1>
+      <h1>  {item.Device} </h1>
+      <h4>{item.sellingPrice}</h4>
       </div>
     ))}
     </div>
