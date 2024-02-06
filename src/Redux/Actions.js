@@ -4,7 +4,7 @@ export const addItemToCart=(id)=>async(dispatch)=>{
     try{
         // const {data}=await axios.get(`http://localhost:5132//api/store/${id}`)
 
-        const {data}=await axios.get(`https://ecartbackend-qtwf.onrender.com/api/store/${id}`)
+        const {data}=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
 
         dispatch({type:'addtocart',payload:data})
     }

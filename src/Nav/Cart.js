@@ -38,7 +38,7 @@ const Cart = () => {
     alert('You have not logged in..')
     }
     else{
-      axios.get('http://localhost:5132/api/cart',{
+      axios.get('https://ecartbackend-qtwf.onrender.com/api/cart',{
         headers: {
           authorization: `Bearer ${token}`
         }
