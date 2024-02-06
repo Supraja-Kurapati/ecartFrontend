@@ -14,7 +14,7 @@ const cartSlice=createSlice({
         // //axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
         // .then(res=>{
 
-            const itemstoADD=state.products.findIndex(item=>item.id===action.payload.id)
+            const itemstoADD=state.products.find(item=>item.id===action.payload.id)
 
                         if(itemstoADD>0){
                 itemstoADD.quantity++;
