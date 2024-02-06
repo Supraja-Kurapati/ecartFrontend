@@ -4,8 +4,8 @@ import '../App.css'
 import { NavLink } from 'react-router-dom';
 import cart from '../Images/shopping-cart-icon.png'
 import { useNavigate } from 'react-router-dom';
- const Navbar = ({requestsearch}) => {
-
+ const Navbar = () => {
+// const Navbar=({requestsearch})=>{
   const navigate=useNavigate()
   const handlehome=()=>{
     navigate('/')
@@ -22,11 +22,11 @@ import { useNavigate } from 'react-router-dom';
       setLoggedIn(false)
     },6000)
   }
-   const [search,setSearch]=useState('')
+  //  const [search,setSearch]=useState('')
 
-   const handleSearch=()=>{
-    requestsearch(search)
-   }
+  //  const handleSearch=()=>{
+  //   requestsearch(search)
+  //  }
   return (
 
     <div className='navbar'>
