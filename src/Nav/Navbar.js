@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Logo from '../Images/logo-white.png'
 import '../App.css'
 import { NavLink } from 'react-router-dom';
-import cart from '../Images/shopping-cart-icon.png'
+import cartImg from '../Images/shopping-cart-icon.png'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
  const Navbar = () => {
+  const {cart}=useSelector(state=>state.cart)
 // const Navbar=({requestsearch})=>{
   const navigate=useNavigate()
   const handlehome=()=>{
@@ -39,8 +41,10 @@ import { useNavigate } from 'react-router-dom';
 {/* <Search/> */}
 
 <NavLink to='/cart'>    <div>
-    <div className='cart'><img id='cartimg' src={cart} alt='Not Found' 
-   /></div>
+    <div className='cart'><img id='cartimg' src={cartImg} alt='Not Found' 
+   />   <span className='cartquantity'>{cart.length}</span>
+
+   </div>
 
     </div>
 </NavLink>

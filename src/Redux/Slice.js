@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Data from "../DATA/Data";
+//import Data from "../DATA/Data";
+const     initialState={
+  // products:Data,
+   cart:[],
+  totalquantity:1,
+  totalPrice:0
+};
+
 const cartSlice=createSlice({
     name:'cart',
-    initialState:{
-         products:Data,
-         cart:[],
-        quantity:0
-    },
+    initialState,
     reducers:{
         addItemToCart:(state,action)=>{
         //             try{
@@ -14,10 +17,15 @@ const cartSlice=createSlice({
         // //axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
         // .then(res=>{
 
-            const itemstoADD=state.products.find(item=>item.id===action.payload.id)
+            const itemstoADD=state.cart.find(item=>item.id===action.payload.id)
+            console.log(action.payload.id);
 
-                        if(itemstoADD>=0){
-                itemstoADD.quantity++;
+                        if(itemstoADD){
+               //immerError //state.cart.quantity+=action.payload.quantity;
+  //              state.cart = state.cart.map((item, index) =>
+  //   index === itemstoADD ? { ...item, quantity: item.quantity + action.payload.quantity } : item
+  // );
+  itemstoADD.quantity+=action.payload.quantity
             }
             else{
                         // const tempvar = {...action.payload,quantity:1}
@@ -33,8 +41,10 @@ const cartSlice=createSlice({
               //  console.log(temp.id);
          //state.cart.push(action.payload)  
         //--------- state.cart.push(itemstoADD) 
-        state.cart.push("payload",action.payload)
+        state.cart.push({...action.payload,quantity:1})
         }
+        state.totalquantity+=action.payload.quantity;
+        state.totalPrice+=action.payload.quantity*action.payload.sellingPrice
 //     })
     
 // }
@@ -43,34 +53,62 @@ const cartSlice=createSlice({
 // }
 
         },
-        incrementQuantity: (state,action) => {
-            const item = state.cart.find((item) => item.id === action.payload.id);
-            item.quantity+=1;
-          },
-          decrementQuantity: (state,action) => {
-            const item = state.cart.find((item)=> item.id === action.payload.id);
-            if (item.quantity === 1) {
-              item.quantity = 1
-            } else {
-              item.quantity-=1;
-            }
-          },
+        // incrementQuantity: (state,action) => {
+        //     const item = state.cart.find((item) => item.id === action.payload.id);
+        //     item.quantity+=1;
+        //   },
+        //   decrementQuantity: (state,action) => {
+        //     const item = state.cart.find((item)=> item.id === action.payload.id);
+        //     if (item.quantity === 1) {
+        //       item.quantity = 1
+        //     } else {
+        //       item.quantity-=1;
+        //     }
+        //   },
       
           removeItem: (state, action) => {
-            const removeItem = state.cart.filter(item=> item.id !== action.payload?.id);
-            state.cart = removeItem;
+            const itemIndex = state.cart.findIndex(item=> item.id === action.payload.id);
+          if(itemIndex!== -1){
+            state.cart.splice(itemIndex,1);
+            state.totalquantity-=state.cart[itemIndex].quantity
+            state.totalPrice -= state.cart[itemIndex].quantity*state.cart[itemIndex].sellingPrice
+          }
+
+            //state.cart = itemIndex;
           },
-          
+          updateQuantity:(state,action)=>{
+            const itemIndex=state.cart.findIndex(item=>item.id===action.payload.id)
+
+            if(itemIndex!==-1){
+              const newQuantity=Math.max(1,action.payload.quantity)
+              const quantityChange=newQuantity-state.cart[itemIndex].quantity
+
+              state.cart[itemIndex].quantity=newQuantity;
+              state.totalquantity+=quantityChange;
+              state.totalPrice+=quantityChange*state.cart[itemIndex].sellingPrice
+            }
+          }
         },
       });
       
       export const cartReducer = cartSlice.reducer;
       export const {
         addItemToCart,
-        incrementQuantity,
-        decrementQuantity,
         removeItem,
-      } = cartSlice.actions;
+        updateQuantity
+      }=cartSlice.actions
+      // export const {
+      //   addItemToCart,
+      //   incrementQuantity,
+      //   decrementQuantity,
+      //   itemIndex,
+      // } = cartSlice.actions;
+//export default cartSlice.actions
+      // const {actions,reducer}= cartSlice
+
+      // export const {addItemToCart}=actions
+
+      //export default reducer
 
 // import { createSlice } from "@reduxjs/toolkit";
 // import Data from './../DATA/Data';

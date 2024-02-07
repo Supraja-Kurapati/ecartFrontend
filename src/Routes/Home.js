@@ -9,37 +9,16 @@ import delivery from '../Images/shipping.svg'
 import support from '../Images/support.svg'
 import refund from '../Images/refund.svg'
 import { useDispatch} from 'react-redux';
-import { useSelector } from 'react-redux';
- import { addItemToCart } from '../Redux/Slice';
+//import { useSelector } from 'react-redux';
+ import  {addItemToCart } from '../Redux/Slice';
 // import { addItemToCart } from '../Redux/Slice';
 import ProductsCarousel from './ProductsCarousel';
 // import { addItemToCart } from '../Redux/Actions';
 const Home = () => {
-    
-
-
-
-  const Data=useSelector(state=>state.cart.products)
-  console.log(Data);
-//  console.log(cart);
-// const getTotal=()=>{
-//   let total=0
-//   cart.forEach(item => {
-//     total += item.quantity
-//   })
-//   return total
-// }
-const dispatch=useDispatch()
-
-  const notify=()=>{
-    toast.success("Added to Cart 🎉")
-  }
-  const handlecart=(id)=>{
-dispatch(addItemToCart(id));
-notify();
-console.log("cart clicked",id);
-  }
   const [data,setData]=useState([]);
+
+  const dispatch=useDispatch();
+
   useEffect(()=>{
     const fetchData=async()=>{
       try{
@@ -53,6 +32,20 @@ console.log("cart clicked",id);
     }
     fetchData()
   },[])
+  const notify=()=>{
+    toast.success("Added to Cart 🎉")
+  }
+  const handlecart=(id,Device)=>{
+//dispatch(addItemToCart());
+dispatch(addItemToCart({
+   ...id,...Device,
+  
+  quantity:1
+}))
+notify();
+console.log("cart clicked",id,Device);
+  }
+  // console.log(data);
 
   return (
     <div>
@@ -61,10 +54,10 @@ console.log("cart clicked",id);
       <h3 style={{margin:"auto auto"}}>ALL Categories</h3>
       <div>
       <div className='parentProductDisplay' >
-      {data.filter((e)=>parseInt(e.id%5)===0).map((item)=>(
+      {data.filter((e)=>parseInt(e.id%5)===0).map((item,index)=>(
 
-      <div className='ProductDetailsDisplay'>
-        <div className='Productstructure' key={item.id}>
+      <div className='ProductDetailsDisplay' key={index}>
+        <div className='Productstructure'>
           
           <NavLink to={`/Individual/${item.id}`}>
         <div className='ProductDisplayimg'>
@@ -78,8 +71,8 @@ console.log("cart clicked",id);
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
 
 
-      <button className='addtocart' onClick={()=>handlecart(item.id)}>Add To Cart</button>
-      <ToastContainer/>
+      <button className='addtocart' onClick={()=>handlecart(item.id,item.Device)}>Add To Cart</button>
+      <ToastContainer autoClose={1000}/>
       {/* <button className='addtocart' onClick={()=>dispatch(addItemToCart(item.id)) }>ADD To Cart</button> */}
       </div>
       </div>
