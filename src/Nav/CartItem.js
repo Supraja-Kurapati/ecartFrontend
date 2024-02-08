@@ -1,59 +1,69 @@
-// import React from "react";
-// import { incrementQuantity,decrementQuantity,removeItem } from "../Redux/Slice";
-
-// import { useDispatch } from "react-redux";
-
-// function CartItem({id,quantity=0}){
-//     const dispatch=useDispatch()
-//     return(
-//         <div style={{border:"2px solid black"}}>
-//             <img src={Image} alt='item'/>
-//             <p>{Device}</p>
-//         <div>
-//         <button onClick={() => dispatch(decrementQuantity(id))}>-</button>
-//         <p>{quantity}</p>
-//         <button onClick={() => dispatch(incrementQuantity(id))}>+</button>
-//       </div>
-//       <button onClick={() => dispatch(removeItem(id))}>
-//             Remove
-//         </button>
-//       </div>
-
-//     )
-// }
-
-
-
-// export default CartItem
-
 import React from 'react'
-import {  useDispatch, useSelector } from 'react-redux'
-import {removeItem,updateQuantity }from '../Redux/Slice'
+import { useSelector,useDispatch } from 'react-redux'
+import { decrementQuantity, addItemToCart } from '../Redux/Slice'
+import { removeItem } from '../Redux/Slice'
+// import { useNavigate } from 'react-router-dom'
 const CartItem = () => {
   const cartItems=useSelector((state)=>state.cart.cart)
+  // const totalPrice=useSelector(state=>state.cart)
   const dispatch=useDispatch();
+  // const navigate=useNavigate()
 
-  const handleRemoveItem=(id)=>{
-    dispatch(removeItem(id))
-  };
+  
+  const handleRemoveItem=(item)=>{
+   dispatch(removeItem({
+     quantity:0
+   }))
+   console.log(item.id,"removeItem")
 
-  const handleQuantitychange=(id,newQuantity)=>{
-    dispatch(updateQuantity({id,quantity:newQuantity}))
   }
-  return (
-    <div>CartItem
-      {
-        cartItems.map((item,index)=>(
-          <div key={index}>
-            <h2>{item.id}</h2>
-            <h3>{item.Device}</h3>
 
-            <button onClick={handleRemoveItem}>Remove</button>
-            <button onClick={handleQuantitychange}>quantityChange</button>
-            </div>
-        ))
-      }
+//   const handleQuantitychange=(item,newQuantity)=>{
+//    dispatch(updateQuantity({item,quantity:newQuantity}))
+//  }
+ const incrementitem=(item)=>{
+dispatch(addItemToCart({...item,quantity:1,...item.Price}))
+console.log("increment",item.quantity);
+ }
+ const decrementitem=(item)=>{
+  dispatch(decrementQuantity({quantity:0,...item}))
+  console.log("decrement",item.quantity);
+   }
+  
+  return (
+    <>
+    <div style={{display:'flex', flexDirection:'column',width:'auto',justifyContent:"center"}}>CartItem
+      {
+      cartItems.map((item,index) => ( 
+        
+        <div  key={item} className='ParentCartItem'>
+        {/* id={item.id} */}
+        <div className='cartitemWrapper'>
+        <div>
+        <img src={item.Image} alt='Not Found' className='cartImg'/>
+        </div>
+        <div className='cartitemdetails'>
+        <span className='devicename'>{item.Device} </span>
+       <span className='devicename'> price:{item.sellingPrice}</span>
+<div className='qty'>
+        <button onClick={()=>decrementitem(item)} className='btnclr'>-</button> 
+         {item.quantity}
+        <button onClick={()=>incrementitem(item)} className='btnclr'>+</button>
+
+ </div>       
+        <button onClick={item.quantity>0?()=>handleRemoveItem(item):undefined} className='rmvbtn'>Remove</button>
+
+         </div>
+ </div>
+      </div> 
+     ))} 
+
     </div>
+     <div>
+     <h3> Total Price :</h3>
+     </div>
+     </>
+
   )
 }
 

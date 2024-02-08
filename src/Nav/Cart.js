@@ -1,35 +1,31 @@
  import React,{useEffect} from 'react'
- import { useSelector,useDispatch } from 'react-redux'
+ import { useSelector } from 'react-redux'
   import axios from 'axios';
-//import Data from '../DATA/Data';
- // import CartItem from './CartItem';
- import { removeItem } from '../Redux/Slice';
  import { useNavigate } from 'react-router-dom';
-const Cart = ({id}) => {
-
-  // const [data,setData]=useState([]);
-  // useEffect(()=>{
-  //   const fetchData=async()=>{
-  //     try{
-  //       //const resp=await axios.get('https://ecartbackend-qtwf.onrender.com/api/store')
-  //        const resp=await axios.get('http://localhost:5132/api/store')
-  //       setData(resp.data)
-  //     }
-  //     catch(err){
-  //    console.log(err,"Error in fetching Data");
-  //     }
-  //   }
-  //   fetchData()
-  // },[])
-
-    const cartItems=useSelector(state=>state.cart.cart)
-  const dispatch=useDispatch();
+import CartItem from './CartItem';
+import CartEmpty from './CartEmpty';
+const Cart = () => {
+     //const cartItems=useSelector((state)=>state.cart.cart)
+     const cartLength=useSelector((state)=>state.cart.cart.length)
+     console.log(cartLength);
+//   const dispatch=useDispatch();
    const navigate=useNavigate()
 
-   const handleremove=(item)=>{
-    dispatch(removeItem(item))
-   }
+//    const handleRemoveItem=(item)=>{
+//     dispatch(removeItem({
+//       quantity:0
+//     }))
+//     console.log(item.id,"removeItem")
 
+//    }
+
+//    const handleQuantitychange=(item,newQuantity)=>{
+//     dispatch(updateQuantity({item,quantity:newQuantity}))
+//   }
+//   const incrementitem=(item)=>{
+// dispatch(incrementQuantity({quantity:1,...item}))
+// console.log("increment",item.quantity);
+//   }
   useEffect(()=>{
     const token=localStorage.getItem('token')
     console.log(token);
@@ -52,38 +48,18 @@ const Cart = ({id}) => {
       }
       },[navigate])
   return(
-  <>
-  {/* <h2> this is cart</h2> */}
-{
-  cartItems.filter((e)=>parseInt(e.id)===id).map(item=>(
-<div key={item.id}>
-<p>{item.Device}</p>
-  <img src={item.Image} alt='Not Found'/>
- <button onClick={()=>handleremove(item)}>Remove</button> 
+<>
+ <div className="cart__left">
+   <div>
+     {cartLength===0?<CartEmpty/>:<CartItem/>}
+  </div>
 </div>
-   ))
-}
+
 </>
 )
     }
     export default Cart
 
-// {/* <div className="cart__left">
-//   <div>
-//     <h3>Shopping Cart</h3>
-//      {
-//      cart.map((item) => ( 
-//        <CartItem
-//         key={item.id}
-//         id={item.id}
-//         Image={item.Image}
-//         Device={item.Device}
-//         quantity={item.quantity}
-//         price={item.Price}
-//       /> 
-//      ))} 
-//   </div>
-// </div> */}
 
 
 

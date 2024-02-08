@@ -7,12 +7,14 @@ import Accessories from './Accessories'
 import Tablet from './Tablet'
 import Individual from '../Individual/Individual'
 
-//import Cart from '../Nav/Cart'
+import Cart from '../Nav/Cart'
 import Login from '../Nav/Login'
 import Register from '../Nav/Register'
 // import { useRef } from 'react'
 import Search from '../Nav/Search'
-import CartItem from '../Nav/CartItem'
+//import CartItem from '../Nav/CartItem'
+import CartEmpty from './../Nav/CartEmpty';
+// import CartItem from '../Nav/CartItem'
 
 
 const Routing = () => {
@@ -51,6 +53,7 @@ const Routing = () => {
       <NavLink to='/Accessories' style={linkStyle}><img src='https://us.123rf.com/450wm/sergwsq/sergwsq1109/sergwsq110900040/10502566-icons-of-computer-vector-electronic-tv-printer-laptop-photo.jpg?ver=6' alt='Not Found' height=
         '30px' width='30px' style={{marginLeft:"20px"}}/>
 <div>Accessories</div></NavLink>
+
 {/* <div className='hamburger' onClick={shownavbar}>
       <div style={{display:"block"}}>
       <div className='topline'>-</div>
@@ -68,7 +71,8 @@ const Routing = () => {
         <Route path='/Laptop' element={<Laptop/>}/>
         <Route path='/Accessories' element={<Accessories/>}/>
         <Route path='/Individual/:id' element={<Individual/>}/>
-        <Route path='/cart' element={<CartItem/>}/>
+        <Route path='/cartEmpty' element={<CartEmpty/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path='/search' element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>

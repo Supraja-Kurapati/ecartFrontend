@@ -39,16 +39,14 @@ import { useSelector } from 'react-redux';
    <NavLink to='/search'> <img src='https://www.svgrepo.com/show/7109/search.svg' alt='search' id='searchimg' onClick={handleSearch}/></NavLink></div>
 </div> */}
 {/* <Search/> */}
-
+<div>
 <NavLink to='/cart'>    <div>
     <div className='cart'><img id='cartimg' src={cartImg} alt='Not Found' 
-   />   <span className='cartquantity'>{cart.length}</span>
-
+   /> <span className='cartquantity'>{cart.length}</span>
    </div>
-
     </div>
 </NavLink>
-
+</div>
   
     {/* <NavLink to='/login'>    <div>
     <button id='loginbutton'>Login</button>
@@ -62,17 +60,9 @@ import { useSelector } from 'react-redux';
     </div>
 </NavLink>
 )
-}
-
-
-
-       
-           {/* <Route path='/search' element={<Search/>}/> */}
-           {/* <Route path='/cart' element={<Cart/>}/> */}
-           {/* <Route path='/login' element={<Login/>}/> */}
-           
-        </div>
-    </div>
+}           
+ </div>
+</div>
 
     
   )
