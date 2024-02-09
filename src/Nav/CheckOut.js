@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import spinner from '../Images/Spinner-1s-200px.gif'
 import { useNavigate } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 const CheckOut = () => {
    const navigate=    useNavigate();
  //  let cartLength=useSelector((state)=>state.cart.cart.length)
-setTimeout(() => {
+useEffect(()=>{
+ setTimeout(() => {
     navigate('/')
     
-}, 4000);
+}, 4000)
+})
   return (
     <div>
         <div className='thankuWrapper'>

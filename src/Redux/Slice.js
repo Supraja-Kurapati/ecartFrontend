@@ -87,7 +87,7 @@ const cartSlice=createSlice({
           removeItem: (state, action) => {
             const itemIndex = state.cart.findIndex(item=> item.id !== action.payload.id);
           if(itemIndex!== -1){
-            const quantitytoRemove=state.cart[itemIndex,1]?.quantity||0
+            const quantitytoRemove=state.cart[itemIndex][1]?.quantity||0
             state.cart.splice(itemIndex,1);
             state.totalquantity-=quantitytoRemove
             const priceChange=action.payload.sellingPrice
