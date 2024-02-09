@@ -40,7 +40,7 @@ const Home = () => {
 dispatch(addItemToCart({
    ...item,
   quantity:1,
-  Price:item.sellingPrice
+  sellingPrice:item.sellingPrice
 }))
 notify();
 console.log("cart clicked",item);
@@ -67,8 +67,8 @@ console.log("cart clicked",item);
       <div className='details'>
       <NavLink to={`/Individual/${item.id}`}>
       <h4 className='navlink'>{item.Device.slice(0,50)}</h4></NavLink>
-      <h5>Sale Price: {item.Price}</h5>
-      <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
+      <h5>Sale Price: {item.sellingPrice}</h5>
+      <h5 className='linethrough'>M.R.P.:₹{item.Price}</h5>
 
 
       <button className='addtocart' onClick={()=>handlecart(item)}>Add To Cart</button>

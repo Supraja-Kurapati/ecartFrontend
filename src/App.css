@@ -413,7 +413,7 @@ margin: 5px;
 margin: auto;
 }
 .cartitemWrapper{
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content:space-evenly;
 }
@@ -442,6 +442,42 @@ width: 20px;
 border: 1px solid rgb(212,182,232);
 border-radius: 3px;
 }
+.CheckOut{
+  height: 30px;
+  width: 250px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 2px 2px lightgray;
+  background-color: rgb(122, 33, 178);
+color: white;
+font-weight: bold;
+font-family: cursive;
+font-size: large;
+ 
+}
+.thankuWrapper{
+  height: 80vh;
+  width: 100vw;
+  background-color: rgb(212, 182, 238);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thnkutxt{
+  font-family: cursive;
+  font-size: larger;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 2px  black;
+}
+.OrderDetailsWrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
 
 @media screen  and (min-width:600px) and (max-width:1030px) {
  .navbar{

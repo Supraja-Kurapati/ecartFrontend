@@ -14,6 +14,8 @@ import Register from '../Nav/Register'
 import Search from '../Nav/Search'
 //import CartItem from '../Nav/CartItem'
 import CartEmpty from './../Nav/CartEmpty';
+import CheckOut from '../Nav/CheckOut'
+
 // import CartItem from '../Nav/CartItem'
 
 
@@ -76,6 +78,7 @@ const Routing = () => {
         <Route path='/search' element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/checkout' element={<CheckOut/>}/>
       </Routes>
       {/* </BrowserRouter> */}
     </div>

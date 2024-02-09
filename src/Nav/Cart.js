@@ -6,7 +6,7 @@ import CartItem from './CartItem';
 import CartEmpty from './CartEmpty';
 const Cart = () => {
      //const cartItems=useSelector((state)=>state.cart.cart)
-     const cartLength=useSelector((state)=>state.cart.cart.length)
+     let cartLength=useSelector((state)=>state.cart.cart.length)
      console.log(cartLength);
 //   const dispatch=useDispatch();
    const navigate=useNavigate()

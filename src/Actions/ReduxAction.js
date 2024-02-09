@@ -1,26 +1,26 @@
-export const addItemToCart=(item)=>({
-    type:createSlice.actions.addItemToCart.type,
-    payload:{
-        id:item.id,
-        Device:item.Device,
-        quantity:1
-    }
-});
+// export const addItemToCart=(item)=>({
+//     type:createSlice.actions.addItemToCart.type,
+//     payload:{
+//         id:item.id,
+//         Device:item.Device,
+//         quantity:1
+//     }
+// });
 
-export const removeItem=(id)=>({
-    type:createSlice.actions.removeItem.type,
-    payload:{
-        id,
-    }
-})
+// export const removeItem=(id)=>({
+//     type:createSlice.actions.removeItem.type,
+//     payload:{
+//         id,
+//     }
+// })
 
-export const updateQuantity=(id,newQuantity)=>({
-    type:createSlice.actions.updateQuantity.type,
-    payload:{
-id,
-quantity:newQuantity,
-    }
-})
+// export const updateQuantity=(id,newQuantity)=>({
+//     type:createSlice.actions.updateQuantity.type,
+//     payload:{
+// id,
+// quantity:newQuantity,
+//     }
+// })
 
 // Dispatching Actions in Components:
 
