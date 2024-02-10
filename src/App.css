@@ -55,6 +55,49 @@ padding: 3px;
 span .cartlen{
   text-decoration: none;
 }
+.SearchWrapper{
+  width: 30vw;
+  margin: auto auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.searchResultWrapper{
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.searchResultWrapper ul li{
+  list-style-type: none;
+  display: flex;
+}
+.searchimgdata{
+  height: 130px;
+  width: 130px;
+}
+.dataSearch{
+  display: flex;
+  margin: 10px; 
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 50vw;
+  justify-content: center;
+}
+
+.dsimg{
+  width: 20vw;
+  margin-left: 30px;
+}
+.dsDetails{
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-break: break-all;
+  margin-left: 20px;
+}
 .Searchbar{
   display: flex;
   position: relative;
@@ -69,9 +112,12 @@ border-radius: 15px;
 #searchimg{
   height: 25px;
   width: 30px;
- position: absolute;
- right: 10px;
- top: 5px;
+  position: absolute;
+  left: 240px;
+}
+#searchimgnav{
+  height: 25px;
+  width: 30px;
 }
 #loginbutton{
   height: 30px;
@@ -629,5 +675,26 @@ grid-column: 1/2;
 .RegisterDetails input[type='email'] ,input[type=password],input[type=text]{
 width: 150px;
 }
+.Simg{
+margin-left: -120px;
+}
+.searchimgdata{
+  height: 100px;
+  width: 100px;
+}
+.dataSearch{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dsimg{
+  width: 100%;
+  margin-left: 50px;
+}
+.dsDetails{
+  width: 100%;
+  margin-left: 0px;
+}
+
 }
 
