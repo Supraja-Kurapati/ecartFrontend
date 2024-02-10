@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { decrementQuantity, incrementQuantity } from '../Redux/Slice'
-import { removeItem ,removeAll} from '../Redux/Slice'
-import { NavLink } from 'react-router-dom'
+import { removeItem } from '../Redux/Slice'
+//import { NavLink } from 'react-router-dom'
 import OrderDetails from './OrderDetails'
 // import { useNavigate } from 'react-router-dom'
 const CartItem = () => {
