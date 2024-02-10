@@ -4,12 +4,24 @@ import axios from 'axios';
 import '../App.css'
 import {ToastContainer,toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../Redux/Slice';
 const Individual = () => {
   const notify=()=>toast("Added to Cart 🎉")
   
     const individualid=useParams().id;
     const [data,setData]=useState([])
+    const dispatch=useDispatch()
+    const handlecart=(item)=>{
+      //dispatch(addItemToCart());
+      dispatch(addItemToCart({
+         ...item,
+        quantity:1,
+        sellingPrice:item.sellingPrice
+      }))
+      notify();
+    }      
+
     useEffect(()=>{
       const fetchData=async()=>{
         try{
@@ -22,6 +34,7 @@ const Individual = () => {
       }
       fetchData()
     },[])
+
     useEffect(()=>{
       console.log(data);
     },[data])
@@ -35,8 +48,8 @@ const Individual = () => {
       <div className='individualImg'>
         <img src={item.Image} alt='notFound' className='individualimg'/>
         <div style={{marginTop:"10px"}}>
-          <button className='indicart' onClick={notify}>ADD to Cart</button>
-          <ToastContainer/>
+          <button className='indicart' onClick={()=>handlecart(item)}>ADD to Cart</button>
+          <ToastContainer autoClose={1000}/>
         </div>
       </div>
       <div className='individualDetails'>

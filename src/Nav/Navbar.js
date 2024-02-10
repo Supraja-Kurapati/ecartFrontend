@@ -42,7 +42,7 @@ import { useSelector } from 'react-redux';
 <div>
 <NavLink to='/cart'>    <div>
     <div className='cart'><img id='cartimg' src={cartImg} alt='Not Found' 
-   /> <span className='cartquantity'>{cart.length}</span>
+   /> <span className='cartlen'>{cart.length}</span>
    </div>
     </div>
 </NavLink>
@@ -56,7 +56,7 @@ import { useSelector } from 'react-redux';
 {loggedIn?(<img src='https://cdn-icons-png.flaticon.com/512/1053/1053210.png' alt='Logout' id='logoutbutton' onClick={handlelogout}/>):(
   <NavLink to='/login'>   
    <div>
-    <button id='loginbutton' onClick={handlelogin}>Login</button>
+    <div id='loginbutton' onClick={handlelogin}><img src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' alt='user' id='cartimg'/></div>
     </div>
 </NavLink>
 )

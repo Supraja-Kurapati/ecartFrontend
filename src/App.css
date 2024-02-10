@@ -43,6 +43,18 @@ background: linear-gradient(11deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 1
   height: 40px;
   width: 40px;
 }
+.cartlen{
+  height: 30px;
+  width: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+font-size: 20px;
+padding: 3px;
+}
+span .cartlen{
+  text-decoration: none;
+}
 .Searchbar{
   display: flex;
   position: relative;
@@ -64,7 +76,7 @@ border-radius: 15px;
 #loginbutton{
   height: 30px;
   width: 50px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 5px;
   background-color: transparent;
 }
@@ -611,5 +623,11 @@ grid-column: 1/2;
 
 }
 
+.ParentCartItem{
+  width: 90%;
+}
+.RegisterDetails input[type='email'] ,input[type=password],input[type=text]{
+width: 150px;
+}
 }
 
