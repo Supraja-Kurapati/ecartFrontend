@@ -3,12 +3,24 @@ import React,{useState,useEffect} from 'react'
 import { ToastContainer,toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from 'react-router-dom'
-
-
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../Redux/Slice';
 const Tablet = () => {
   const notify=()=>toast("Added to Cart 🎉")
 
     const [data,setData]=useState([])
+    const dispatch=useDispatch();
+    const handlecart=(item)=>{
+      //dispatch(addItemToCart());
+      dispatch(addItemToCart({
+         ...item,
+        quantity:1,
+        sellingPrice:item.sellingPrice
+      }))
+      notify();
+      console.log("cart clicked",item);
+        }
+
   useEffect(()=>{
     const fetchData=async()=>{
       try{
@@ -40,8 +52,8 @@ console.error(err,"error in Fetching the data")
       <h4 className='navlink'>{item.Device.slice(0,50)}</h4></NavLink>
       <h5>Sale Price: {item.sellingPrice}</h5>
       <h5 className='linethrough'>M.R.P.:{item.Price}</h5>
-      <button className='addtocart' onClick={notify}>Add To Cart</button>
-      <ToastContainer/>
+      <button className='addtocart' onClick={()=>handlecart(item)}>Add To Cart</button>
+      <ToastContainer autoClose={1000}/>
       </div>
       </div>
       </div>

@@ -8,6 +8,7 @@ const CheckOut = () => {
 useEffect(()=>{
  setTimeout(() => {
     navigate('/')
+    window.location.reload()
     
 }, 4000)
 })
