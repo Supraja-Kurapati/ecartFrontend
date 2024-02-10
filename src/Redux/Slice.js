@@ -31,24 +31,10 @@ const cartSlice=createSlice({
         console.log(state.totalquantity);
         state.totalPrice+=parseInt(action.payload.sellingPrice)
         console.log(state.totalPrice);
-
-        //totalPrice neeed to dispatchin cartItem.js
-        // state.totalPrice+=1
-        // console.log(state.totalPrice);
-
-        // itemstoADD.sellingPrice=action.payload.sellingPrice*itemstoADD.quantity   
-        // const totalItemPriceIncrement=parseInt(action.payload.sellingPrice) //gets actualsellingprice
-        // if(isFinite(totalItemPriceIncrement)){
-        // state.totalPrice+=totalItemPriceIncrement
-        // }
-        // else{
-        //   console.log("Adding Error");
-        // }
         },
 
         incrementQuantity:(state,action)=>{
           const itemstoADD=state.cart.find(item=>item.id===action.payload.id) //finds whether item exist or not
-          // console.log(action.payload.id);
                       if(itemstoADD){
                       itemstoADD.quantity+=action.payload.quantity
                       console.log(itemstoADD.quantity);
@@ -85,41 +71,60 @@ const cartSlice=createSlice({
           },
       
           removeItem: (state, action) => {
-            const itemIndex = state.cart.findIndex(item=> item.id !== action.payload.id);
-          if(itemIndex!== -1){
+            const itemIndex = state.cart.findIndex((item)=> item.id !== action.payload.id);
+          if(itemIndex!==-1){
             const quantitytoRemove=state.cart[itemIndex][1]?.quantity||0
             state.cart.splice(itemIndex,1);
             state.totalquantity-=quantitytoRemove
-            const priceChange=action.payload.sellingPrice
-             state.totalPrice -=priceChange;
-             console.log(state.totalPrice,"remove");      
-              }
-              state.totalPrice=parseInt(action.payload.sellingPrice)*state.totalquantity
-            //state.cart = itemIndex;
+            state.totalquantity--
+
+            // let priceChange=parseInt(action.payload.sellingPrice)
+            //  state.totalPrice -=priceChange;
+            //  console.log(priceChange,"remove");   
+            //  state.totalPrice=parseInt(action.payload.sellingPrice)*state.totalquantity
+            // const pricetoRemove=state.cart[itemIndex][1]?.sellingPrice||0
+            // state.cart.splice(itemIndex, 1);
+            // state.totalquantity -= quantitytoRemove;
+
+            console.log(state.totalPrice);
+            let totalP=   state.totalPrice - state.cart[itemIndex]?.sellingPrice;
+          console.log(totalP);    
+            state.totalPrice-=totalP
+  
+      }
+          },
+
+
+        removeAll:(state,action)=>{
+          console.log("removeAll reducer called");
+          const itemIndex = state.cart.findIndex(item=> item.id !== action.payload.id);
+          console.log(itemIndex);
+          // if(state.cart.length!==-1){
+          //   const quantitytoRemove=state.cart[itemIndex][1]?.quantity||0
+          //   state.cart.splice(itemIndex);
+          //   state.totalquantity-=quantitytoRemove
+
+          //  }
+          if(state.cart.cart.length!==-1){
+            state.cart=[]
+            state.totalquantity-=action.payload.quantity;
+            state.cart.totalPrice=0
           }
-
-          // updateQuantity:(state,action)=>{
-          //   const itemIndex=state.cart.findIndex(item=>item.id===action.payload.id)
-
-          //   if(itemIndex!==-1){
-          //     const newQuantity=Math.max(2,action.payload.quantity)
-          //     const quantityChange=newQuantity-state.cart[itemIndex].quantity
-
-          //     state.cart[itemIndex].quantity=newQuantity;
-          //     state.totalquantity+=quantityChange;
-          //     state.totalPrice+=quantityChange*state.cart[itemIndex].sellingPrice
-
-          //   }
-          // },
+        }
         },
-      });
+
+
+
+      }
+      );
       export const cartReducer = cartSlice.reducer;
       export const {
         addItemToCart,
         removeItem,
         updateQuantity,
         incrementQuantity,
-        decrementQuantity
+        decrementQuantity,
+        removeAll
       }=cartSlice.actions
 
 
