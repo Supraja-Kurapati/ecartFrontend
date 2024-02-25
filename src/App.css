@@ -398,7 +398,7 @@ font-size: large;
 
 }
 .RegisterWrapper{
-  height:80vh;
+  /* height:80vh; */
   width: 100vw;
   background-image:radial-gradient(rgb(209, 160, 238), rgb(139, 134, 152));
 color: white;
@@ -408,6 +408,7 @@ display: flex;
 flex-direction: column;
 flex-wrap: wrap;
 font-family: serif;
+padding-bottom: 30px;
 }
 .createAcc{
   /* border : 1px solid white; */
@@ -419,12 +420,13 @@ font-family: serif;
 .RegisterDetails{
   width: 50vw;
   text-align: center;
+  /* border: 1px solid red; */
 }
-.flnames{
+/* .flnames{
   display: flex;
  justify-content: center;
  gap: 10px; 
-}
+} */
 .RegisterDetails input[type='email'] ,input[type=password],input[type=text]{
   height: 30px;
   width: 200px;
@@ -697,6 +699,8 @@ margin-left: -120px;
   width: 100%;
   margin-left: 0px;
 }
-
+/* .flnames{
+  flex-direction: column;
+} */
 }
 
