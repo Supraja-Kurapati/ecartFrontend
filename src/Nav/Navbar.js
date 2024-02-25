@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from '../Images/logo-white.png'
 import '../App.css'
 import { NavLink } from 'react-router-dom';
@@ -12,16 +12,20 @@ import { useSelector } from 'react-redux';
   const handlehome=()=>{
     navigate('/')
   } 
-  const [loggedIn,setLoggedIn]=useState(false)
+  // const [loggedIn,setLoggedIn]=useState(false)
 
-  const handlelogin=()=>{
-    setLoggedIn(true)
-  }
+  // const handlelogin=()=>{
+    const checkToken=localStorage.getItem('token')
+  //   if (checkToken){
+  //   setLoggedIn(true)
+  //   }
+  // }
   const handlelogout=()=>{
     localStorage.removeItem('token')
     setTimeout(()=>{
-    alert("you ave loggedout")
-      setLoggedIn(false)
+    alert("you have loggedout")
+    window.location.reload();
+      // setLoggedIn(false)
     },6000)
   }
   //  const [search,setSearch]=useState('')
@@ -57,10 +61,10 @@ import { useSelector } from 'react-redux';
     </div>
 </NavLink>
 <Logout/> */}
-{loggedIn?(<img src='https://cdn-icons-png.flaticon.com/512/1053/1053210.png' alt='Logout' id='logoutbutton' onClick={handlelogout}/>):(
+{checkToken?(<img src='https://cdn-icons-png.flaticon.com/512/1053/1053210.png' alt='Logout' id='logoutbutton' onClick={handlelogout}/>):(
   <NavLink to='/login'>   
    <div>
-    <div id='loginbutton' onClick={handlelogin}><img src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' alt='user' id='cartimg'/></div>
+    <div id='loginbutton' ><img src='https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png' alt='user' id='cartimg'/></div>
     </div>
 </NavLink>
 )
